@@ -28,7 +28,7 @@ async function makeNetworkRequest({
   method: Method;
   relativeUrl: string;
 }): Promise<Response> {
-  return await fetch(relativeUrl + baseUrl, {
+  return await fetch(baseUrl + relativeUrl, {
     method: method,
     body: JSON.stringify(body),
     headers: {
@@ -76,7 +76,7 @@ export async function createPersonHobbies({
     person_id,
   });
   const response = await makeNetworkRequest({
-    method: "GET",
+    method: "POST",
     baseUrl: baseUrl,
     relativeUrl: pathUrl,
     signal,

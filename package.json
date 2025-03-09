@@ -38,5 +38,10 @@
       "esbuild",
       "msw"
     ]
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

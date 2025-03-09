@@ -4,7 +4,7 @@ import {
   createPersonHobbies as _createPersonHobbies,
   HobbyCreatePayload,
 } from "../../services/people";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface UsePeopleLogicProps {
   person_id: string;
@@ -39,6 +39,11 @@ export function usePeopleLogic({ person_id }: UsePeopleLogicProps) {
       new_hobbies: [newHobby],
     });
   };
+
+  useEffect(() => {
+    if (!personHobbiesError) return;
+    console.error(personHobbiesError);
+  }, [personHobbiesError])
 
   return {
     personHobbies,

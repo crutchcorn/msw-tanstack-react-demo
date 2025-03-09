@@ -6,7 +6,7 @@ import {
 import { returnJSON } from "./json";
 
 // Should be replaced with an env var of some kind
-const baseUrl = "exmaple.com";
+const baseUrl = "example.com";
 
 export const getAbsolutePeoplePath = (path: string) => {
   return `https://${baseUrl}${path}`;

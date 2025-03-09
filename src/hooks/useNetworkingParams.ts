@@ -1,15 +1,8 @@
 import { useMemo } from "react";
 
-import { PRODUCTION, STAGING } from "../constants/environments";
-
-export const getBaseUrl = (env: ImportMetaEnv) => {
-  if (env.ENVIRONMENT === STAGING) {
-    return `https://${env.API_URL.STAGING}`;
-  }
-  if (env.ENVIRONMENT === PRODUCTION) {
-    return `https://${env.API_URL.PROD}`;
-  }
-  return `https://${env.API_URL.DEV}`;
+export const getBaseUrl = (_env: ImportMetaEnv) => {
+  // You can return different base URLs depending on your environmental vars
+  return `https://example.com`;
 };
 
 export const useNetworkingParams = () => {
@@ -20,5 +13,5 @@ export const useNetworkingParams = () => {
     return getBaseUrl(env);
   }, [env]);
 
-  return { baseUrl, env: env?.ENVIRONMENT } as const;
+  return { baseUrl } as const;
 };

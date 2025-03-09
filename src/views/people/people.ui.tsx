@@ -23,7 +23,7 @@ export function PeopleUI({
     <div>
       <h1>Hello, user {personId}</h1>
       <p>This is a place where you can list the hobbies you like</p>
-      <hr/>
+      <hr />
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -31,16 +31,20 @@ export function PeopleUI({
         }}
       >
         <h2>Add new hobby</h2>
-        <input
-          value={hobbyInputVal}
-          onChange={(e) => setHobbyInputVal(e.target.value)}
-        />
+        <label>
+          <div>New hobby name</div>
+          <input
+            value={hobbyInputVal}
+            onChange={(e) => setHobbyInputVal(e.target.value)}
+          />
+        </label>
         <button>Add hobby</button>
       </form>
       {isPersonHobbiesPending ? "Adding hobby..." : null}
       {personHobbiesError ? <p>There was an error adding the hobby</p> : null}
-      <hr/>
+      <hr />
       <h2 id="hobbies-heading">Hobbies</h2>
+      {personHobbies?.length ? null : <p>There are no hobbies</p>}
       <ul aria-describedby="hobbies-heading" role="list">
         {personHobbies?.map((hobby) => <li key={hobby.id}>{hobby.name}</li>)}
       </ul>

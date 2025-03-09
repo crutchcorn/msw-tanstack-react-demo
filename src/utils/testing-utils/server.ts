@@ -10,7 +10,7 @@ import { returnJSON } from "./json";
  */
 export const worker = setupWorker(...peopleHandlers)
 
-export function mockEndpointV5(
+export function mockEndpoint(
   path: string,
   body: object,
   type: "get" | "post" | "put" | "delete" = "get",
@@ -18,7 +18,7 @@ export function mockEndpointV5(
   worker.use(http[type](getAbsolutePeoplePath(path), returnJSON(body)));
 }
 
-export function mockEndpointWithPromiseV5(
+export function mockEndpointWithPromise(
   path: string,
   bodyPromise: Promise<object>,
 ) {
